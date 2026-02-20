@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sort & Search Employees</title>
+</head>
+
+<body>
+
+<h2>Sort & Search Employees</h2>
+
+<select id="order">
+  <option value="ascending">Ascending</option>
+  <option value="descending">Descending</option>
+</select>
+
+<input type="text" id="search" placeholder="Enter name">
+
+<button onclick="loadXML()">Apply</button>
+
+<div id="result"></div>
+
+<script>
+function loadXML() {
+
+  var order = document.getElementById("order").value;
+  var name = document.getElementById("search").value;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "employee.xml", false);
+  xhttp.send();
+  var xml = xhttp.responseXML;
+
+  var xsl = new XMLHttpRequest();
+  xsl.open("GET", "employee.xsl", false);
+  xsl.send();
+  var xslDoc = xsl.responseXML;
+
+  var processor = new XSLTProcessor();
+  processor.importStylesheet(xslDoc);
+
+  processor.setParameter(null, "sortOrder", order);
+  processor.setParameter(null, "searchName", name);
+
+  var resultDocument = processor.transformToFragment(xml, document);
+
+  document.getElementById("result").innerHTML = "";
+  document.getElementById("result").appendChild(resultDocument);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!ELEMENT employees (employee+)>
+<!ELEMENT employee (id, name, email, position, department, salary, joining_date, age, gender, experience)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT position (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+<!ELEMENT joining_date (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>
+<!ELEMENT experience (#PCDATA)>

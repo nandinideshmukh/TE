@@ -1,4 +1,3 @@
-// removed package declaration to avoid conflict with java namespace
 import java.util.*;
 
 class RoundRobin{
