@@ -6,7 +6,8 @@ class Synchronization {
     public static void main(String[] args) {
         // noticable difference is when you put (1,1) and (2,2) bhari haaa
         SemaphoreMutex buffer = new SemaphoreMutex(2, 2); // Create a parameterized SemaphoreMutex
-
+        
+        // Passing the same buffer here as threads must work on the same Queue
         Producer producer = new Producer(buffer);
         Consumer consumer = new Consumer(buffer);
         Thread t1 = new Thread(producer, "Producer-Thread");
