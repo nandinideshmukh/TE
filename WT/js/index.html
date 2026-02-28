@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #82b8e4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgb(194, 225, 225);
+      padding: 50px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 93%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    .success {
+      color: green;
+      font-size: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Register</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <div id="usernameError" class="error"></div>
+
+  <input type="text" id="email" placeholder="Email">
+  <div id="emailError" class="error"></div>
+
+  <input type="password" id="password" placeholder="Password">
+  <div id="passwordError" class="error"></div>
+
+  <button onclick="validateForm()">Submit</button>
+</div>
+
+<script>
+function validateForm() {
+
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  let usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+  let valid = true;
+
+  if (!usernameRegex.test(username)) {
+    document.getElementById("usernameError").innerHTML =
+      "Username must be 3-15 characters (letters, numbers, underscore only)";
+    valid = false;
+  } else {
+    document.getElementById("usernameError").innerHTML = "";
+  }
+
+  if (!emailRegex.test(email)) {
+    document.getElementById("emailError").innerHTML =
+      "Enter a valid email address";
+    valid = false;
+  } else {
+    document.getElementById("emailError").innerHTML = "";
+  }
+
+  if (!passwordRegex.test(password)) {
+    document.getElementById("passwordError").innerHTML =
+      "Password must contain 8+ characters, uppercase, lowercase, number, special char";
+    valid = false;
+  } else {
+    document.getElementById("passwordError").innerHTML = "";
+  }
+
+  if (valid) {
+    alert("Form submitted successfully!");
+  }
+}
+</script>
+
+</body>
+</html>

@@ -12,6 +12,7 @@ public class BestFirstNextWorst {
         memory_allocation.first_fit();
         memory_allocation.next_fit();
         memory_allocation.worst_fit();
+        
     }
 
     public BestFirstNextWorst(int n, int m) {
@@ -30,6 +31,7 @@ public class BestFirstNextWorst {
             processSize[i] = sc.nextInt();
 
         original = blocks.clone();
+        sc.close();
     }
 
     void resetBlocks() {
