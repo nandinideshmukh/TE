@@ -49,6 +49,14 @@
                 <xsl:value-of select="department" />
               </td>
               <td>
+                <xsl:attribute name="style">
+                  <xsl:choose>
+                    <xsl:when test="salary &gt; 80000">background-color:#90EE90;</xsl:when>
+                    <xsl:when test="salary &gt;= 50000 and salary &lt;= 100000">
+    background-color:#FFFF99;</xsl:when>
+                    <xsl:otherwise>background-color:#FF7F7F;</xsl:otherwise>
+                  </xsl:choose>
+                </xsl:attribute>
                 <xsl:value-of select="salary" />
               </td>
               <td>
