@@ -2066,3 +2066,8 @@ NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED -
 13-Mar-2026 17:38:43.929 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/nandini/Documents/TE/TE/WT/apache-tomcat-9.0.115/webapps/host-manager]
 13-Mar-2026 17:38:43.991 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 13-Mar-2026 17:38:43.992 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/nandini/Documents/TE/TE/WT/apache-tomcat-9.0.115/webapps/host-manager] has finished in [63] ms
+13-Mar-2026 17:40:40.632 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+13-Mar-2026 17:40:40.633 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+13-Mar-2026 17:40:40.634 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+13-Mar-2026 17:40:40.645 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+13-Mar-2026 17:40:40.659 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
