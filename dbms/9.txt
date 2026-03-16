@@ -1,0 +1,153 @@
+
+db.createCollection("test_db");
+
+// Create
+db.test_db.insert({
+  "name":"ABc",
+  "age":19,
+  "city":"Pune"
+});
+
+
+db.test_db.insertMany([
+  {"name":"c",
+  "age":29,
+  "city":"Mumbai"},
+  {"name":"b",
+  "age":18,
+  "city":"Bombay"}
+]);
+  
+// Read
+// db.test_db.find().pretty();
+// db.test_db.find({age:19});
+// db.test_db.find({},{name:1,age:1});
+
+
+// Update
+db.test_db.updateOne({
+  "name":"ABc"
+},{
+  $set:{"age":29}
+});
+
+// db.test_db.find().pretty();
+
+db.test_db.find({
+  $nor:[
+    {city:"Mumbai"},
+    {age:18}
+  ]
+});
+
+// db.test_db.deleteMany({city:"Bombay"});
+
+// It is older version of Insert
+db.test_db.save({
+  id:2,
+  "name":"Nan",
+  "age":20,
+  "city":"Pune"
+});
+db.test_db.find().sort({"age":1});
+db.test_db.find().sort({"age":-1});
+
+db.test_db.drop();
+db.test_db.find()
+
+
+// Output
+
+
+1262 ms
+{ ok: 1 }
+
+
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69b821e6ccf5fd1ba08ce5af') }
+}
+
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b821e6ccf5fd1ba08ce5b0'),
+    '1': ObjectId('69b821e6ccf5fd1ba08ce5b1')
+  }
+}
+
+
+
+
+
+
+
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+[
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5af'),
+    name: 'ABc',
+    age: 29,
+    city: 'Pune'
+  }
+]
+
+
+
+
+Uncaught 
+TypeError: db.test_db.save is not a function
+[
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5b1'),
+    name: 'b',
+    age: 18,
+    city: 'Bombay'
+  },
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5af'),
+    name: 'ABc',
+    age: 29,
+    city: 'Pune'
+  },
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5b0'),
+    name: 'c',
+    age: 29,
+    city: 'Mumbai'
+  }
+]
+[
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5af'),
+    name: 'ABc',
+    age: 29,
+    city: 'Pune'
+  },
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5b0'),
+    name: 'c',
+    age: 29,
+    city: 'Mumbai'
+  },
+  {
+    _id: ObjectId('69b821e6ccf5fd1ba08ce5b1'),
+    name: 'b',
+    age: 18,
+    city: 'Bombay'
+  }
+]
+
+true
