@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE employees SYSTEM "employee.dtd">
 <?xml-stylesheet type="text/xsl" href="employee.xsl"?>
-<employees>
+<employees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="employee.xsd">
     <employee>
         <id>1</id>
         <name>Sakshi verma </name>
